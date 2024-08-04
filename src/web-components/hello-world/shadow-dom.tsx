@@ -2,12 +2,14 @@ type HelloWorldDsdButtonProps = {
   label: string;
 };
 
-// Declarative Shadow DOMを用いた`HelloWorldDsd`
+// 1. `<template>`要素を使って`HelloWorldDsdButton`の構造を定義
 export const HelloWorldDsdButton = ({ label }: HelloWorldDsdButtonProps) => {
   return (
-    <hello-world>
+    <hello-world-button>
       <template
+        // 1.1. `<template>`要素の`shadowrootmode`属性にopenを指定
         shadowrootmode="open"
+        // 1.2. `<template>`要素の中にShadow DOMに追加したい要素を記述
         dangerouslySetInnerHTML={{
           __html: `
           <style>
@@ -24,6 +26,6 @@ export const HelloWorldDsdButton = ({ label }: HelloWorldDsdButtonProps) => {
         `,
         }}
       />
-    </hello-world>
+    </hello-world-button>
   );
 };

@@ -17,6 +17,8 @@ const Layout: FC = (props) => {
     <html lang="en">
       <head>
         <title>SSRed with Web Components</title>
+        {/* 5. クライアントサイドのエントリーポイントを`<script>`タグで読み込む */}
+        {/* 6. Hydration時にclient.jsで定義されたCustom Elementが登録され、Web Componentの機能がアップグレードされる（ = Custom Elementが有効になり、Custom Element内で実装した機能がShadow DOMに適用される）*/}
         <script src="/static/client.js" defer />
       </head>
       <body>{props.children}</body>
@@ -24,6 +26,7 @@ const Layout: FC = (props) => {
   );
 };
 
+// 2. SSRされる`SSRedPage`に`HelloWorldDsdButton`コンポーネントを追加
 const SSRedPage = () => {
   return (
     <Layout>

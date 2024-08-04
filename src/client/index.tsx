@@ -2,8 +2,9 @@ import { render } from "hono/jsx/dom";
 import { HelloWorldCE } from "../web-components/hello-world/custom-element";
 import { HelloWorldDsdButton } from "../web-components/hello-world/shadow-dom";
 
-// <hello-world /> Custom Elementを定義
-customElements.define("hello-world", HelloWorldCE);
+// 4. クライアントサイドのエントリーポイント（./src/client/index.tsx）を作成
+// 4.1. `window.customElements.define`でCustom Elementを定義
+customElements.define("hello-world-button", HelloWorldCE);
 
 // 👇setHTMLUnsafeを使ってDSDを利用した <hello-world /> Custom Elementを追加するボタン
 const SetHtmlUnsafeDSDAddButton = () => {
