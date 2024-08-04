@@ -1555,7 +1555,9 @@
       tempDiv.setHTMLUnsafe(
         HelloWorldDsdButton({ label: "I'm DSD Button" }).toString()
       );
-      document.body.appendChild(tempDiv.getElementsByTagName("hello-world")[0]);
+      document.body.appendChild(
+        tempDiv.getElementsByTagName("hello-world-button")[0]
+      );
     };
     return /* @__PURE__ */ jsxDEV2("button", { type: "button", onClick: handleAddDsd, children: "Add Say DSD!(setHTMLUnsafe)" });
   };
@@ -1565,7 +1567,9 @@
       tempDiv.innerHTML = HelloWorldDsdButton({
         label: "I'm DSD Button"
       }).toString();
-      document.body.appendChild(tempDiv.getElementsByTagName("hello-world")[0]);
+      document.body.appendChild(
+        tempDiv.getElementsByTagName("hello-world-button")[0]
+      );
     };
     return /* @__PURE__ */ jsxDEV2("button", { type: "button", onClick: handleAddDsd, children: "Add Say DSD!(innerHTML)" });
   };

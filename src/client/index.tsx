@@ -15,7 +15,9 @@ const SetHtmlUnsafeDSDAddButton = () => {
     tempDiv.setHTMLUnsafe(
       HelloWorldDsdButton({ label: "I'm DSD Button" }).toString(),
     );
-    document.body.appendChild(tempDiv.getElementsByTagName("hello-world")[0]);
+    document.body.appendChild(
+      tempDiv.getElementsByTagName("hello-world-button")[0],
+    );
   };
   return (
     <button type="button" onClick={handleAddDsd}>
@@ -32,7 +34,9 @@ const InnerHtmlDSDAddButton = () => {
     tempDiv.innerHTML = HelloWorldDsdButton({
       label: "I'm DSD Button",
     }).toString();
-    document.body.appendChild(tempDiv.getElementsByTagName("hello-world")[0]);
+    document.body.appendChild(
+      tempDiv.getElementsByTagName("hello-world-button")[0],
+    );
   };
   return (
     <button type="button" onClick={handleAddDsd}>
