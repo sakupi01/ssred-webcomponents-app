@@ -4,6 +4,7 @@ import { HelloWorldDsdButton } from "../web-components/hello-world/shadow-dom";
 
 // 4. クライアントサイドのエントリーポイント（./src/client/index.tsx）を作成
 // 4.1. `window.customElements.define`でCustom Elementを定義
+// 4.2. `./src/client/index.tsx`はビルド時に`./static/client.js`として出力される
 customElements.define("hello-world-button", HelloWorldCE);
 
 // 👇setHTMLUnsafeを使ってDSDを利用した <hello-world /> Custom Elementを追加するボタン

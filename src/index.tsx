@@ -17,7 +17,7 @@ const Layout: FC = (props) => {
     <html lang="en">
       <head>
         <title>SSRed with Web Components</title>
-        {/* 5. クライアントサイドのエントリーポイントを`<script>`タグで読み込む */}
+        {/* 5. `./static/client.js`を`<script>`タグで読み込む */}
         {/* 6. Hydration時にclient.jsで定義されたCustom Elementが登録され、Web Componentの機能がアップグレードされる（ = Custom Elementが有効になり、Custom Element内で実装した機能がShadow DOMに適用される）*/}
         <script src="/static/client.js" defer />
       </head>
