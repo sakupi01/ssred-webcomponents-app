@@ -1502,7 +1502,7 @@
 
   // src/web-components/hello-world/custom-element.ts
   var HelloWorldCE = class extends HTMLElement {
-    // 3.2. Custom Elementの持つ機能を`connectedCallback`メソッド内で実装
+    // 2.2. Custom Elementの持つ機能を`connectedCallback`メソッド内で実装
     connectedCallback() {
       const button3 = this.shadowRoot?.querySelector("button");
       button3?.addEventListener("click", () => alert("Hello, World!"));
@@ -1522,39 +1522,29 @@
     return node;
   }
 
-  // src/web-components/hello-world/shadow-dom.tsx
-  var HelloWorldDsdButton = ({ label }) => {
-    return /* @__PURE__ */ jsxDEV2("hello-world-button", { children: /* @__PURE__ */ jsxDEV2(
-      "template",
-      {
-        shadowrootmode: "open",
-        dangerouslySetInnerHTML: {
-          __html: `
-          <style>
-            button {
-              background-color: pink;
-              color: white;
-              padding: 15px 32px;
-              font-size: 16px;
-              margin: 4px 2px;
-              cursor: pointer;
-            }
-          </style>
-          <button>${label}</button>
-        `
-        }
-      }
-    ) });
-  };
-
   // src/client/index.tsx
   customElements.define("hello-world-button", HelloWorldCE);
+  var helloWorldComponent = (label) => `
+      <hello-world-button>
+        <template shadowrootmode="open">
+          <style>
+              button {
+                background-color: pink;
+                color: white;
+                padding: 15px 32px;
+                font-size: 16px;
+                margin: 4px 2px;
+                cursor: pointer;
+                }
+          </style>
+          <button type="button">${label}</button>
+        </template>
+      </hello-world-button>
+`;
   var SetHtmlUnsafeDSDAddButton = () => {
     const handleAddDsd = () => {
       const tempDiv = document.createElement("div");
-      tempDiv.setHTMLUnsafe(
-        HelloWorldDsdButton({ label: "I'm DSD Button" }).toString()
-      );
+      tempDiv.setHTMLUnsafe(helloWorldComponent("I'm DSD Button"));
       document.body.appendChild(
         tempDiv.getElementsByTagName("hello-world-button")[0]
       );
@@ -1564,9 +1554,7 @@
   var InnerHtmlDSDAddButton = () => {
     const handleAddDsd = () => {
       const tempDiv = document.createElement("div");
-      tempDiv.innerHTML = HelloWorldDsdButton({
-        label: "I'm DSD Button"
-      }).toString();
+      tempDiv.innerHTML = helloWorldComponent("I'm DSD Button");
       document.body.appendChild(
         tempDiv.getElementsByTagName("hello-world-button")[0]
       );

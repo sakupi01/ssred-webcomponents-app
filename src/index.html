@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SSRed with Web Components</title>
+    <!-- 4. ./static/client.jsを<script>タグで読み込む -->
+    <!-- 5. Hydration時にclient.jsで定義されたCustom Elementが登録され、Web Componentの機能がアップグレードされる -->
+    <script src="./static/client.js" defer></script>
+</head>
+<body>
+  <h1>Rendered in Server Side</h1>
+  <hello-world-button>
+      <!-- 1. `<template>`要素を使ってDSDの構造を定義 -->
+      <!-- 1.1`<template>`要素の`shadowrootmode`属性にopenを指定 -->
+        <template shadowrootmode="open">
+          <!-- 1.2`<template>`要素内にShadow DOMの構造を記述 -->
+          <style>
+            button {
+              background-color: pink;
+              color: white;
+              padding: 15px 32px;
+              font-size: 16px;
+              margin: 4px 2px;
+              cursor: pointer;
+              }
+        </style>
+        <button type="button">Button1</button>
+      </template>
+    </hello-world-button>
+    <hello-world-button>
+      <template shadowrootmode="open">
+        <style>
+            button {
+              background-color: pink;
+              color: white;
+              padding: 15px 32px;
+              font-size: 16px;
+              margin: 4px 2px;
+              cursor: pointer;
+              }
+        </style>
+        <button type="button">Button2</button>
+      </template>
+    </hello-world-button>
+    <hello-world-button>
+      <template shadowrootmode="open">
+        <style>
+            button {
+              background-color: pink;
+              color: white;
+              padding: 15px 32px;
+              font-size: 16px;
+              margin: 4px 2px;
+              cursor: pointer;
+              }
+        </style>
+        <button type="button">Button3</button>
+      </template>
+    </hello-world-button>
+      
+     <div id="root"></div>
+</body>
+</html>
