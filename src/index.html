@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SSRed with Web Components</title>
+    <script src="./static/client.js" defer></script>
+</head>
+<body>
+    <hello-world-button>
+        <template shadowrootmode="open">
+          <style>
+              button {
+                background-color: pink;
+                color: white;
+                padding: 15px 32px;
+                font-size: 16px;
+                margin: 4px 2px;
+                cursor: pointer;
+                }
+          </style>
+          <button type="button">Button1</button>
+        </template>
+      </hello-world-button>
+    <hello-world-button>
+        <template shadowrootmode="open">
+          <style>
+              button {
+                background-color: pink;
+                color: white;
+                padding: 15px 32px;
+                font-size: 16px;
+                margin: 4px 2px;
+                cursor: pointer;
+                }
+          </style>
+          <button type="button">Button2</button>
+        </template>
+      </hello-world-button>
+    <hello-world-button>
+        <template shadowrootmode="open">
+          <style>
+              button {
+                background-color: pink;
+                color: white;
+                padding: 15px 32px;
+                font-size: 16px;
+                margin: 4px 2px;
+                cursor: pointer;
+                }
+          </style>
+          <button type="button">Button3</button>
+        </template>
+      </hello-world-button>
+      
+      <div id="root"></div>
+</body>
+</html>

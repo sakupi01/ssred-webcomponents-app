@@ -1,20 +1,35 @@
 import { render } from "hono/jsx/dom";
 import { HelloWorldCE } from "../web-components/hello-world/custom-element";
-import { HelloWorldDsdButton } from "../web-components/hello-world/shadow-dom";
 
 // 4. クライアントサイドのエントリーポイント（./src/client/index.tsx）を作成
 // 4.1. `window.customElements.define`でCustom Elementを定義
 // 4.2. `./src/client/index.tsx`はビルド時に`./static/client.js`として出力される
 customElements.define("hello-world-button", HelloWorldCE);
 
+const helloWorldComponent = (label: string) => `
+      <hello-world-button>
+        <template shadowrootmode="open">
+          <style>
+              button {
+                background-color: pink;
+                color: white;
+                padding: 15px 32px;
+                font-size: 16px;
+                margin: 4px 2px;
+                cursor: pointer;
+                }
+          </style>
+          <button type="button">${label}</button>
+        </template>
+      </hello-world-button>
+`;
+
 // 👇setHTMLUnsafeを使ってDSDを利用した <hello-world /> Custom Elementを追加するボタン
 const SetHtmlUnsafeDSDAddButton = () => {
   const handleAddDsd = () => {
     const tempDiv = document.createElement("div");
     // 👇setHTMLUnsafeを使ってDSDを追加
-    tempDiv.setHTMLUnsafe(
-      HelloWorldDsdButton({ label: "I'm DSD Button" }).toString(),
-    );
+    tempDiv.setHTMLUnsafe(helloWorldComponent("I'm DSD Button"));
     document.body.appendChild(
       tempDiv.getElementsByTagName("hello-world-button")[0],
     );
@@ -31,9 +46,7 @@ const InnerHtmlDSDAddButton = () => {
   const handleAddDsd = () => {
     const tempDiv = document.createElement("div");
     // 👇innerHTMLを使ってDSDを追加
-    tempDiv.innerHTML = HelloWorldDsdButton({
-      label: "I'm DSD Button",
-    }).toString();
+    tempDiv.innerHTML = helloWorldComponent("I'm DSD Button");
     document.body.appendChild(
       tempDiv.getElementsByTagName("hello-world-button")[0],
     );
