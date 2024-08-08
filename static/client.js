@@ -1502,7 +1502,7 @@
 
   // src/web-components/hello-world/custom-element.ts
   var HelloWorldCE = class extends HTMLElement {
-    // 3.2. Custom Elementの持つ機能を`connectedCallback`メソッド内で実装
+    // 2.2. Custom Elementの持つ機能を`connectedCallback`メソッド内で実装
     connectedCallback() {
       const button3 = this.shadowRoot?.querySelector("button");
       button3?.addEventListener("click", () => alert("Hello, World!"));

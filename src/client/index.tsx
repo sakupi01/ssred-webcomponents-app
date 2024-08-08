@@ -1,9 +1,9 @@
 import { render } from "hono/jsx/dom";
 import { HelloWorldCE } from "../web-components/hello-world/custom-element";
 
-// 4. クライアントサイドのエントリーポイント（./src/client/index.tsx）を作成
-// 4.1. `window.customElements.define`でCustom Elementを定義
-// 4.2. `./src/client/index.tsx`はビルド時に`./static/client.js`として出力される
+// 3. クライアントサイドのエントリーポイント（./src/client/index.tsx）を作成
+// 3.1. `window.customElements.define`でCustom Elementを定義
+// 3.2. `./src/client/index.tsx`はビルド時に`./static/client.js`として出力される
 customElements.define("hello-world-button", HelloWorldCE);
 
 const helloWorldComponent = (label: string) => `
