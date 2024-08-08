@@ -24,7 +24,7 @@ const helloWorldComponent = (label: string) => `
       </hello-world-button>
 `;
 
-// 👇setHTMLUnsafeを使ってDSDを利用した <hello-world /> Custom Elementを追加するボタン
+// 👇setHTMLUnsafeを使ってDSDを利用した <hello-world-button /> Custom Elementを追加するボタン
 const SetHtmlUnsafeDSDAddButton = () => {
   const handleAddDsd = () => {
     const tempDiv = document.createElement("div");
@@ -41,7 +41,7 @@ const SetHtmlUnsafeDSDAddButton = () => {
   );
 };
 
-// 👇innerHTMLを使ってDSDを利用した <hello-world /> Custom Elementを追加するボタン
+// 👇innerHTMLを使ってDSDを利用した <hello-world-button /> Custom Elementを追加するボタン
 const InnerHtmlDSDAddButton = () => {
   const handleAddDsd = () => {
     const tempDiv = document.createElement("div");
