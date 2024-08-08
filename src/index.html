@@ -9,9 +9,12 @@
     <script src="./static/client.js" defer></script>
 </head>
 <body>
-    <hello-world-button>
-      <template shadowrootmode="open">
-        <style>
+  <hello-world-button>
+      <!-- 1. `<template>`要素を使ってDSDの構造を定義 -->
+      <!-- 1.1`<template>`要素の`shadowrootmode`属性にopenを指定 -->
+        <template shadowrootmode="open">
+          <!-- 1.2`<template>`要素内にShadow DOMの構造を記述 -->
+          <style>
             button {
               background-color: pink;
               color: white;
